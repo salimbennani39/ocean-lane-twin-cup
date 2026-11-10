@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
 <title>Ocean Lane. | Home of the Twin Cup | Açaí, Matcha & Coffee in Bali</title>
 <meta name="description" content="Ocean Lane, home of the Twin Cup. Açaí, matcha and coffee in Seseh, Ubud, Sanur and Pererenan, Bali.">
 <meta property="og:title" content="Ocean Lane. Home of the Twin Cup">
@@ -167,6 +168,14 @@ footer .logo{font-family:var(--script);font-size:40px;color:var(--paper);line-he
   *{animation:none!important;transition:none!important}
   .reveal,.hero-copy>*{opacity:1!important;transform:none!important}
 }
+</style>
+<style>
+/* preview banner */
+.sc-preview{position:fixed;left:0;right:0;bottom:0;z-index:9999;background:var(--cocoa);color:var(--paper);font:500 10.5px/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;text-align:center;padding:9px 16px calc(9px + env(safe-area-inset-bottom));border-top:1px solid rgba(243,236,223,.15)}
+.sc-preview a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+body{padding-bottom:40px}
+.hero .scroll{bottom:58px}
+@media (max-width:420px){.sc-preview{letter-spacing:.06em;font-size:9.5px}}
 </style>
 </head>
 <body>
@@ -496,5 +505,6 @@ footer .logo{font-family:var(--script);font-size:40px;color:var(--paper);line-he
   els.forEach(function(e,i){ e.style.transitionDelay = (i % 4) * 80 + 'ms'; io.observe(e); });
 })();
 </script>
+<div class="sc-preview" role="note">Preview by <a href="https://showcasecreativehouse.com" target="_blank" rel="noopener">SHOWCASE</a> for Ocean Lane &middot; not live yet</div>
 </body>
 </html>
