@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ocean Lane. | Home of the Twin Cup | Açaí, Matcha & Coffee in Bali</title>
+<meta name="description" content="Ocean Lane, home of the Twin Cup. Açaí, matcha and coffee in Seseh, Ubud, Sanur and Pererenan, Bali.">
+<meta property="og:title" content="Ocean Lane. Home of the Twin Cup">
+<meta property="og:description" content="Açaí, matcha and coffee. Half and half, in one cup. Seseh, Ubud, Sanur, Pererenan.">
+<meta property="og:image" content="assets/hero-desktop.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f3ecdf;
+  --paper-2:#ebe1cf;
+  --cocoa:#33150f;
+  --cocoa-2:#4a2219;
+  --wine:#7a1f2b;
+  --matcha:#8fae4a;
+  --berry:#e7a3b4;
+  --ink:#2a1712;
+  --muted:#7a6559;
+  --line:rgba(51,21,15,.18);
+  --serif:"Cormorant Garamond",Georgia,serif;
+  --script:"Pinyon Script",cursive;
+  --mono:"DM Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:20px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+
+/* paper grain */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.07;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px clamp(16px,4vw,48px);color:var(--paper);transition:background .4s ease,color .4s ease,padding .4s ease}
+.nav.solid{background:rgba(243,236,223,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--cocoa);padding-block:12px;border-bottom:1px solid var(--line)}
+.nav .logo{font-family:var(--script);font-size:34px;line-height:1;text-decoration:none}
+.nav ul{display:flex;gap:28px;list-style:none}
+.nav ul a{text-decoration:none;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.9}
+.nav ul a:hover{opacity:1;text-decoration:underline;text-underline-offset:4px}
+@media (max-width:640px){.nav ul{display:none}}
+
+/* hero: plain autoplay video, no scroll effects */
+.hero{position:relative;height:100svh;min-height:560px;overflow:hidden;background:var(--cocoa) center/cover no-repeat;color:var(--paper)}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:
+  radial-gradient(ellipse 60% 55% at 50% 52%,rgba(30,10,6,.55),rgba(30,10,6,0) 70%),
+  linear-gradient(180deg,rgba(30,10,6,.45) 0%,rgba(30,10,6,0) 25%,rgba(30,10,6,0) 65%,rgba(30,10,6,.6) 100%)}
+.hero .divider{position:absolute;top:0;bottom:0;left:50%;width:1px;background:rgba(243,236,223,.5);z-index:1}
+@media (orientation:portrait){.hero .divider{left:0;right:0;top:50%;bottom:auto;width:auto;height:1px}}
+.hero-copy{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 16px}
+.hero-copy .kicker{margin-bottom:10px;opacity:0;animation:rise 1s .3s ease-out forwards}
+.hero-copy h1{font-family:var(--script);font-weight:400;font-size:clamp(84px,13vw,190px);line-height:.9;text-shadow:0 4px 40px rgba(20,6,3,.5);opacity:0;animation:rise 1.2s .5s ease-out forwards}
+.hero-copy .tag{font-style:italic;font-size:clamp(24px,3vw,38px);margin-top:6px;opacity:0;animation:rise 1s .9s ease-out forwards}
+.hero-copy .trio{margin-top:22px;display:flex;gap:14px;align-items:center;opacity:0;animation:rise 1s 1.2s ease-out forwards}
+.hero-copy .trio i{width:5px;height:5px;border-radius:50%;background:var(--paper);opacity:.7}
+.hero-cta{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center;opacity:0;animation:rise 1s 1.5s ease-out forwards}
+.btn{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;padding:14px 22px;border:1px solid currentColor;transition:background .3s ease,color .3s ease}
+.btn.fill{background:var(--paper);color:var(--cocoa);border-color:var(--paper)}
+.btn.fill:hover{background:transparent;color:var(--paper)}
+.btn.ghost:hover{background:var(--paper);color:var(--cocoa)}
+.hero .scroll{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);z-index:2;opacity:.8}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* sections */
+section{padding:clamp(80px,11vw,150px) clamp(16px,5vw,64px)}
+.wrap{max-width:1180px;margin:0 auto}
+.label{color:var(--wine);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.label::before{content:"";width:28px;height:1px;background:currentColor}
+h2{font-weight:400;font-style:italic;font-size:clamp(44px,6vw,80px);line-height:1;color:var(--cocoa);letter-spacing:-.01em}
+.lede{font-size:clamp(20px,1.9vw,24px);color:var(--muted);max-width:34em;margin-top:22px}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* twin cup */
+.twin .grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(32px,6vw,90px);align-items:center}
+.twin .pics{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.twin .pics img{aspect-ratio:4/5;object-fit:cover;width:100%;border-radius:2px}
+.twin .pics img:last-child{margin-top:60px}
+.twin .halves{display:flex;gap:28px;margin-top:36px;flex-wrap:wrap}
+.twin .half{flex:1;min-width:180px;border-top:1px solid var(--line);padding-top:14px}
+.twin .half b{display:block;font-weight:500;font-size:24px;font-style:italic;color:var(--cocoa)}
+.twin .half span{color:var(--muted);font-size:18px}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px;vertical-align:middle}
+@media (max-width:860px){.twin .grid{grid-template-columns:1fr}}
+
+/* quote band */
+.band{background:var(--cocoa);color:var(--paper);text-align:center;padding-block:clamp(70px,9vw,120px)}
+.band p{font-family:var(--script);font-size:clamp(48px,7vw,96px);line-height:1.05}
+.band .mono{opacity:.65;margin-top:18px}
+
+/* menu */
+.menu{background:var(--paper-2)}
+.menu-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:56px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.tabs button{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:12px 18px;background:transparent;color:var(--cocoa);border:1px solid var(--cocoa);border-radius:999px;cursor:pointer;transition:background .25s ease,color .25s ease}
+.tabs button:hover{background:rgba(51,21,15,.06)}
+.tabs button[aria-selected="true"]{background:var(--wine);border-color:var(--wine);color:var(--paper)}
+.board{padding:clamp(14px,2.4vw,28px);border-radius:4px;background:repeating-linear-gradient(90deg,#5a1a22 0 22px,#c9a3ab 22px 44px)}
+.card{background:#4a1219;color:#f6e9e6;padding:clamp(28px,4.5vw,60px);border-radius:2px;outline:1px solid rgba(246,233,230,.45);outline-offset:-12px}
+.panel{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);animation:fadein .4s ease}
+.panel[hidden]{display:none}
+@keyframes fadein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.pcol h3{font-family:var(--script);font-weight:400;font-size:clamp(40px,4.4vw,56px);line-height:1.1;margin-bottom:8px}
+.pcol .sub{font-style:italic;font-size:18px;opacity:.8;margin-bottom:14px;max-width:28em}
+.item{padding:12px 0;border-bottom:1px dashed rgba(246,233,230,.22)}
+.item .row{display:flex;align-items:baseline;gap:10px}
+.item .n{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+.item .dots{flex:1;border-bottom:1px dotted rgba(246,233,230,.35);transform:translateY(-4px)}
+.item .p{font-family:var(--mono);font-size:13px;color:#f2b8c6;white-space:nowrap}
+.item .d{font-size:17px;font-style:italic;opacity:.75;margin-top:2px}
+.bagel-note{display:flex;align-items:center;justify-content:center}
+.bagel-note p{font-family:var(--script);font-size:clamp(44px,5vw,64px);text-align:center;opacity:.9}
+.tax{margin-top:32px;font-size:15px;font-style:italic;opacity:.65;text-align:center}
+.steps{list-style:none;counter-reset:st;margin:6px 0 18px}
+.steps li{counter-increment:st;position:relative;padding:14px 0 14px 46px;border-bottom:1px dashed rgba(246,233,230,.22);font-size:19px}
+.steps li::before{content:counter(st);position:absolute;left:0;top:12px;width:30px;height:30px;border-radius:50%;background:#f2b8c6;color:#4a1219;font-family:var(--mono);font-size:13px;display:grid;place-items:center}
+.steps b{font-weight:500}
+.twin-img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:2px;outline:1px solid rgba(246,233,230,.3);outline-offset:6px}
+.tabs button{-webkit-tap-highlight-color:transparent}
+@media (max-width:860px){.panel{grid-template-columns:1fr}.bagel-note{display:none}.twin-img{max-height:420px}}
+@media (max-width:560px){.tabs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:-16px;padding-inline:16px}.tabs::-webkit-scrollbar{display:none}.tabs button{flex:none}}
+
+/* gallery */
+.gallery{padding-inline:0;overflow:hidden}
+.gallery .wrap{padding-inline:clamp(16px,5vw,64px);margin-bottom:40px}
+.strip{display:flex;gap:14px;width:max-content;animation:drift 50s linear infinite}
+.strip img{height:clamp(260px,32vw,420px);width:auto;aspect-ratio:4/5;object-fit:cover;border-radius:2px}
+.gallery:hover .strip{animation-play-state:paused}
+@keyframes drift{to{transform:translateX(-50%)}}
+
+/* locations */
+.locs{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:56px;border-top:1px solid var(--cocoa)}
+.loc{padding:28px 24px 32px 0;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
+.loc + .loc{padding-left:24px}
+.loc:last-child{border-right:0}
+.loc h3{font-weight:400;font-style:italic;font-size:38px;color:var(--cocoa);line-height:1}
+.loc .hrs{font-family:var(--mono);font-size:13px;letter-spacing:.06em;color:var(--wine)}
+.loc p{color:var(--muted);font-size:18px;flex:1}
+.loc a{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;text-underline-offset:4px;margin-top:8px}
+@media (max-width:960px){.locs{grid-template-columns:1fr 1fr}.loc:nth-child(2n){border-right:0}.loc:nth-child(3){padding-left:0}.loc{border-bottom:1px solid var(--line)}}
+@media (max-width:560px){.locs{grid-template-columns:1fr}.loc,.loc + .loc{padding-left:0;border-right:0}}
+
+/* sunset cta */
+.visit{position:relative;color:var(--paper);background:var(--cocoa);overflow:hidden}
+.visit .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,90px);align-items:center}
+.visit img{aspect-ratio:4/5;object-fit:cover;width:100%;max-height:640px;border-radius:2px}
+.visit h2{color:var(--paper)}
+.visit .lede{color:rgba(243,236,223,.75)}
+.visit .label{color:var(--berry)}
+.visit .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
+.visit .btn.ghost{color:var(--paper)}
+@media (max-width:860px){.visit .grid{grid-template-columns:1fr}}
+
+footer{background:var(--cocoa);color:rgba(243,236,223,.7);padding:40px clamp(16px,5vw,64px);border-top:1px solid rgba(243,236,223,.15)}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+footer .logo{font-family:var(--script);font-size:40px;color:var(--paper);line-height:1}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal,.hero-copy>*{opacity:1!important;transform:none!important}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a href="#top" class="logo">Ocean Lane.</a>
+  <ul>
+    <li><a href="#twin">The Twin Cup</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#find">Find us</a></li>
+  </ul>
+</nav>
+
+<header class="hero" id="top">
+  <video id="heroVideo" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+  <div class="divider" aria-hidden="true"></div>
+  <div class="hero-copy">
+    <span class="mono kicker">Seseh · Ubud · Sanur · Pererenan</span>
+    <h1>Ocean Lane.</h1>
+    <p class="tag">Home of the Twin Cup</p>
+    <div class="trio mono"><span>Açaí</span><i></i><span>Matcha</span><i></i><span>Coffee</span></div>
+    <div class="hero-cta">
+      <a class="btn fill" href="#menu">See the menu</a>
+      <a class="btn ghost" href="#find">Find a cafe</a>
+    </div>
+  </div>
+  <span class="mono scroll" aria-hidden="true">Scroll</span>
+</header>
+
+<section class="twin" id="twin">
+  <div class="wrap grid">
+    <div class="reveal">
+      <div class="mono label">The Twin Cup</div>
+      <h2>Can't decide? Have both.</h2>
+      <p class="lede">The Twin Cup is one split cup with two sides. Choose any two drinks on the menu and we pour them side by side. It's the drink everyone films before they sip.</p>
+      <div class="halves">
+        <div class="half"><b><span class="dot" style="background:var(--matcha)"></span>Side one</b><span>Say a pink coconut matcha, with organic matcha from Uji, Kyoto.</span></div>
+        <div class="half"><b><span class="dot" style="background:var(--cocoa-2)"></span>Side two</b><span>Say a salted caramel latte, on Blacklist coffee.</span></div>
+      </div>
+    </div>
+    <div class="pics reveal">
+      <img src="assets/half-half.jpg" alt="A Twin Cup with matcha on one side and cream on top" loading="lazy">
+      <img src="assets/twin-cup.jpg" alt="Coffee and cream being poured into an Ocean Lane cup" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<div class="band">
+  <p class="reveal">coffee or dessert? yes.</p>
+  <div class="mono reveal">Ask for the tiramisu latte</div>
+</div>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="menu-head reveal">
+      <div>
+        <div class="mono label">Menu</div>
+        <h2>Pick a side. Or both.</h2>
+      </div>
+      <p class="lede" style="margin-top:0;max-width:22em">Organic matcha from Uji, Kyoto. Coffee by Blacklist. Açaí built your way.</p>
+    </div>
+
+    <div class="tabs reveal" role="tablist" aria-label="Menu sections">
+      <button role="tab" aria-selected="true" aria-controls="t-twin" id="b-twin">Twin Cup</button>
+      <button role="tab" aria-selected="false" aria-controls="t-acai" id="b-acai">Açaí</button>
+      <button role="tab" aria-selected="false" aria-controls="t-matcha" id="b-matcha">Matcha</button>
+      <button role="tab" aria-selected="false" aria-controls="t-coffee" id="b-coffee">Coffee</button>
+      <button role="tab" aria-selected="false" aria-controls="t-other" id="b-other">Other drinks</button>
+      <button role="tab" aria-selected="false" aria-controls="t-bagels" id="b-bagels">Bagels</button>
+    </div>
+
+    <div class="board reveal">
+      <div class="card">
+        <div class="panel" role="tabpanel" id="t-twin" aria-labelledby="b-twin">
+          <div class="pcol">
+            <h3>The Twin Cup</h3>
+            <p class="sub">Can't decide? Choose any two drinks on the menu. We pour them side by side in one split cup.</p>
+            <ol class="steps">
+              <li><b>Pick your first drink.</b> Matcha, coffee, a coconut cloud, anything.</li>
+              <li><b>Pick your second.</b> Go opposite, or go full matcha.</li>
+              <li><b>Get both in one cup.</b> One straw, two sides.</li>
+            </ol>
+            <p class="sub">Ask the team for the price of your pair.</p>
+          </div>
+          <div class="pcol">
+            <img class="twin-img" src="assets/half-half.jpg" alt="A Twin Cup with two drinks side by side" loading="lazy">
+          </div>
+        </div>
+        <div class="panel" role="tabpanel" id="t-acai" aria-labelledby="b-acai" hidden>
+          <div class="pcol">
+            <h3>Build your own açaí</h3>
+            <p class="sub">Ask the team for a tick sheet, then choose your size and tick your toppings.</p>
+            <div class="item"><div class="row"><span class="n">Regular</span><span class="dots"></span><span class="p">120k</span></div><div class="d">180g açaí base</div></div>
+            <div class="item"><div class="row"><span class="n">Large</span><span class="dots"></span><span class="p">150k</span></div><div class="d">240g açaí base</div></div>
+          </div>
+          <div class="pcol">
+            <h3>Toppings</h3>
+            <div class="item"><div class="row"><span class="n">Granola</span><span class="dots"></span><span class="p">incl.</span></div><div class="d">Cinnamon or dark chocolate</div></div>
+            <div class="item"><div class="row"><span class="n">Fruit</span><span class="dots"></span><span class="p">incl.</span></div><div class="d">Banana, strawberry</div></div>
+            <div class="item"><div class="row"><span class="n">Sprinkles</span><span class="dots"></span><span class="p">incl.</span></div><div class="d">Coconut flakes, dates</div></div>
+            <div class="item"><div class="row"><span class="n">Biscoff crunch</span><span class="dots"></span><span class="p">+5k</span></div></div>
+            <div class="item"><div class="row"><span class="n">Condensed milk</span><span class="dots"></span><span class="p">incl.</span></div></div>
+            <div class="item"><div class="row"><span class="n">Peanut butter</span><span class="dots"></span><span class="p">+12k</span></div></div>
+            <div class="item"><div class="row"><span class="n">Double peanut butter</span><span class="dots"></span><span class="p">+24k</span></div></div>
+            <div class="item"><div class="row"><span class="n">Nutella / Biscoff</span><span class="dots"></span><span class="p">+15k</span></div></div>
+            <div class="item"><div class="row"><span class="n">Double Nutella / Biscoff</span><span class="dots"></span><span class="p">+30k</span></div></div>
+            <div class="item"><div class="row"><span class="n">Pistachio crunch</span><span class="dots"></span><span class="p">+32k</span></div></div>
+            <div class="item"><div class="row"><span class="n">Double pistachio crunch</span><span class="dots"></span><span class="p">+64k</span></div></div>
+          </div>
+        </div>
+        <div class="panel" role="tabpanel" id="t-matcha" aria-labelledby="b-matcha" hidden>
+          <div class="pcol">
+            <h3>Matcha menu</h3>
+            <p class="sub">ROU matcha, first harvest, organic from Uji, Kyoto. Every drink uses certified organic matcha.</p>
+            <div class="item"><div class="row"><span class="n">Hot / iced matcha</span><span class="dots"></span><span class="p">50k</span></div><div class="d">Add any cold foam or syrup to make it yours</div></div>
+            <div class="item"><div class="row"><span class="n">Ceremonial upgrade</span><span class="dots"></span><span class="p">+15k</span></div></div>
+          </div>
+          <div class="pcol">
+            <h3>Specials</h3>
+            <p class="sub">Go large +10k.</p>
+            <div class="item"><div class="row"><span class="n">Pink coconut</span><span class="dots"></span><span class="p">65k</span></div><div class="d">Iced matcha, coconut syrup, pink coconut cold foam</div></div>
+            <div class="item"><div class="row"><span class="n">Blue spirulina</span><span class="dots"></span><span class="p">65k</span></div><div class="d">Iced matcha, vanilla syrup, blue vanilla cold foam</div></div>
+            <div class="item"><div class="row"><span class="n">Strawberry cream</span><span class="dots"></span><span class="p">70k</span></div><div class="d">Iced matcha, strawberry syrup, strawberry foam</div></div>
+            <div class="item"><div class="row"><span class="n">Banana &amp; butterscotch</span><span class="dots"></span><span class="p">65k</span></div><div class="d">Iced matcha, banana, butterscotch cold foam</div></div>
+            <div class="item"><div class="row"><span class="n">Sunrise matcha</span><span class="dots"></span><span class="p">55k</span></div><div class="d">Matcha over ice and orange juice. Super refreshing</div></div>
+            <div class="item"><div class="row"><span class="n">Matcha cloud</span><span class="dots"></span><span class="p">60k</span></div><div class="d">Coconut water base, whipped matcha cloud</div></div>
+            <div class="item"><div class="row"><span class="n">Birthday cake</span><span class="dots"></span><span class="p">70k</span></div><div class="d">Iced matcha, vanilla, pink vanilla cold foam, sprinkles and candles</div></div>
+          </div>
+        </div>
+        <div class="panel" role="tabpanel" id="t-coffee" aria-labelledby="b-coffee" hidden>
+          <div class="pcol">
+            <h3>Coffee menu</h3>
+            <p class="sub">Hot or iced. First choose your blend: Pitch or Canggu by Blacklist.</p>
+            <div class="item"><div class="row"><span class="n">Espresso</span><span class="dots"></span><span class="p">30k</span></div></div>
+            <div class="item"><div class="row"><span class="n">Long black</span><span class="dots"></span><span class="p">35k</span></div></div>
+            <div class="item"><div class="row"><span class="n">Macchiato</span><span class="dots"></span><span class="p">35k</span></div></div>
+            <div class="item"><div class="row"><span class="n">Piccolo</span><span class="dots"></span><span class="p">35k</span></div></div>
+            <div class="item"><div class="row"><span class="n">Flat white</span><span class="dots"></span><span class="p">45k</span></div></div>
+            <div class="item"><div class="row"><span class="n">Cappuccino</span><span class="dots"></span><span class="p">45k</span></div></div>
+            <div class="item"><div class="row"><span class="n">Latte</span><span class="dots"></span><span class="p">45k</span></div></div>
+            <div class="item"><div class="row"><span class="n">Cold brew</span><span class="dots"></span><span class="p">45k</span></div></div>
+            <div class="item"><div class="row"><span class="n">Almond / coconut milk</span><span class="dots"></span><span class="p">+15k</span></div></div>
+            <div class="item"><div class="row"><span class="n">Oat milk</span><span class="dots"></span><span class="p">+12k</span></div></div>
+            <div class="item"><div class="row"><span class="n">Syrup</span><span class="dots"></span><span class="p">+10k</span></div><div class="d">Vanilla, raspberry, white chocolate, butterscotch, coconut, cherry, caramel, lavender, rose</div></div>
+            <div class="item"><div class="row"><span class="n">Honey</span><span class="dots"></span><span class="p">+5k</span></div></div>
+            <div class="item"><div class="row"><span class="n">Cold foam</span><span class="dots"></span><span class="p">+15k</span></div></div>
+            <div class="item"><div class="row"><span class="n">Make it vegan</span><span class="dots"></span><span class="p">+20k</span></div><div class="d">Coconut cream</div></div>
+          </div>
+          <div class="pcol">
+            <h3>Specials</h3>
+            <p class="sub">Go large +10k.</p>
+            <div class="item"><div class="row"><span class="n">Salted caramel</span><span class="dots"></span><span class="p">70k</span></div><div class="d">Caramel iced latte, vanilla and Himalayan salt cold foam</div></div>
+            <div class="item"><div class="row"><span class="n">Rio's Romano</span><span class="dots"></span><span class="p">55k</span></div><div class="d">Double espresso over ice and orange juice</div></div>
+            <div class="item"><div class="row"><span class="n">Cinnamon &amp; maple</span><span class="dots"></span><span class="p">70k</span></div><div class="d">Maple syrup milk, cinnamon espresso, maple cold foam</div></div>
+            <div class="item"><div class="row"><span class="n">Crème brûlée</span><span class="dots"></span><span class="p">70k</span></div><div class="d">Iced latte, custard cold foam, torched brown sugar</div></div>
+            <div class="item"><div class="row"><span class="n">Coconut coffee cloud</span><span class="dots"></span><span class="p">60k</span></div><div class="d">Fresh coconut over ice, whipped coffee cloud</div></div>
+            <div class="item"><div class="row"><span class="n">Cold brew with cold foam</span><span class="dots"></span><span class="p">60k</span></div><div class="d">Cold brew made in-house, topped with cold foam</div></div>
+          </div>
+        </div>
+        <div class="panel" role="tabpanel" id="t-other" aria-labelledby="b-other" hidden>
+          <div class="pcol">
+            <h3>Coconut clouds</h3>
+            <p class="sub">Fresh coconut water over ice, topped with a whipped cloud. Slightly sweet, or ask for no sugar.</p>
+            <div class="item"><div class="row"><span class="n">Coffee cloud</span><span class="dots"></span><span class="p">60k</span></div></div>
+            <div class="item"><div class="row"><span class="n">Matcha cloud</span><span class="dots"></span><span class="p">60k</span></div></div>
+            <div class="item"><div class="row"><span class="n">Taro cloud</span><span class="dots"></span><span class="p">60k</span></div></div>
+            <div class="item"><div class="row"><span class="n">Strawberry cloud</span><span class="dots"></span><span class="p">60k</span></div></div>
+            <div class="item"><div class="row"><span class="n">Chocolate cloud</span><span class="dots"></span><span class="p">60k</span></div></div>
+          </div>
+          <div class="pcol">
+            <h3>Other drinks</h3>
+            <div class="item"><div class="row"><span class="n">Chocolate, iced or hot</span><span class="dots"></span><span class="p">40k</span></div></div>
+            <div class="item"><div class="row"><span class="n">Pistachio &amp; matcha cloud chocolate</span><span class="dots"></span><span class="p">70k</span></div><div class="d">Iced chocolate, pistachio syrup, pistachio matcha foam</div></div>
+            <div class="item"><div class="row"><span class="n">Taro, iced or hot</span><span class="dots"></span><span class="p">40k</span></div><div class="d">Sweet taro with your choice of milk</div></div>
+            <div class="item"><div class="row"><span class="n">Hojicha, iced or hot</span><span class="dots"></span><span class="p">55k</span></div><div class="d">Japanese green tea, nuttier than matcha, less caffeine</div></div>
+            <div class="item"><div class="row"><span class="n">Hojicha with maple</span><span class="dots"></span><span class="p">60k</span></div></div>
+            <div class="item"><div class="row"><span class="n">Fresh coconut</span><span class="dots"></span><span class="p">45k</span></div></div>
+            <div class="item"><div class="row"><span class="n">Coke zero, coke or sprite</span><span class="dots"></span><span class="p">28k</span></div></div>
+          </div>
+        </div>
+        <div class="panel" role="tabpanel" id="t-bagels" aria-labelledby="b-bagels" hidden>
+          <div class="pcol">
+            <h3>Bagels</h3>
+            <p class="sub">A bagel with your pick of spread.</p>
+            <div class="item"><div class="row"><span class="n">Cream cheese</span><span class="dots"></span><span class="p">60k</span></div></div>
+            <div class="item"><div class="row"><span class="n">Cream cheese &amp; cucumber</span><span class="dots"></span><span class="p">65k</span></div></div>
+            <div class="item"><div class="row"><span class="n">Banana + peanut butter</span><span class="dots"></span><span class="p">65k</span></div></div>
+            <div class="item"><div class="row"><span class="n">Vegan cream cheese</span><span class="dots"></span><span class="p">80k</span></div><div class="d">Plain or chive + onion</div></div>
+            <div class="item"><div class="row"><span class="n">Vegan cream cheese + cucumber</span><span class="dots"></span><span class="p">85k</span></div></div>
+          </div>
+          <div class="pcol">
+            <div class="bagel-note"><p>Pair it with a Twin Cup.</p></div>
+          </div>
+        </div>
+        <p class="tax">Prices in IDR. Subject to 10% government tax and 6% service charge. Pererenan serves açaí and matcha only.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" aria-label="Photos">
+  <div class="wrap reveal">
+    <div class="mono label">@oceanlanebali</div>
+    <h2>Made to be filmed.</h2>
+  </div>
+  <div class="strip">
+    <img src="assets/twin-cup.jpg" alt="Twin Cup" loading="lazy">
+    <img src="assets/acai.jpg" alt="Açaí matcha cup with strawberries" loading="lazy">
+    <img src="assets/tiramisu.jpg" alt="Tiramisu latte" loading="lazy">
+    <img src="assets/seseh.jpg" alt="Two Ocean Lane drinks held up over the ocean at Seseh" loading="lazy">
+    <img src="assets/half-half.jpg" alt="Half matcha half coffee" loading="lazy">
+    <img src="assets/twin-cup.jpg" alt="" loading="lazy">
+    <img src="assets/acai.jpg" alt="" loading="lazy">
+    <img src="assets/tiramisu.jpg" alt="" loading="lazy">
+    <img src="assets/seseh.jpg" alt="" loading="lazy">
+    <img src="assets/half-half.jpg" alt="" loading="lazy">
+  </div>
+</section>
+
+<section id="find">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="mono label">Find us</div>
+      <h2>Four cafes across Bali.</h2>
+    </div>
+    <div class="locs">
+      <div class="loc reveal">
+        <span class="hrs">6.30am – 6pm</span>
+        <h3>Seseh</h3>
+        <p>By the ocean. The earliest opening.</p>
+        <a href="https://maps.app.goo.gl/oEusPC8BKGMGeeAh9" target="_blank" rel="noopener">Directions</a>
+      </div>
+      <div class="loc reveal">
+        <span class="hrs">8am – 5pm</span>
+        <h3>Ubud</h3>
+        <p>The full menu, in the middle of Ubud.</p>
+        <a href="https://www.google.com/maps/search/Ocean+Lane+Ubud" target="_blank" rel="noopener">Directions</a>
+      </div>
+      <div class="loc reveal">
+        <span class="hrs">10am – 10pm</span>
+        <h3>Sanur</h3>
+        <p>Icon Bali Mall, floor 1F. Open late.</p>
+        <a href="https://www.google.com/maps/search/Ocean+Lane+Icon+Bali+Mall+Sanur" target="_blank" rel="noopener">Directions</a>
+      </div>
+      <div class="loc reveal">
+        <span class="hrs">7am – 4pm</span>
+        <h3>Pererenan</h3>
+        <p>Açaí and matcha only.</p>
+        <a href="https://www.google.com/maps/search/Ocean+Lane+Pererenan" target="_blank" rel="noopener">Directions</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="visit">
+  <div class="wrap grid">
+    <img class="reveal" src="assets/seseh.jpg" alt="Two Ocean Lane drinks held up over the ocean at Seseh" loading="lazy">
+    <div class="reveal">
+      <div class="mono label">Come by</div>
+      <h2>Get yours by the ocean.</h2>
+      <p class="lede">Seseh opens at 6.30am. Grab a Twin Cup, walk to the beach, and take the photo everyone takes.</p>
+      <div class="ctas">
+        <a class="btn fill" href="https://maps.app.goo.gl/oEusPC8BKGMGeeAh9" target="_blank" rel="noopener">Directions to Seseh</a>
+        <a class="btn ghost" href="https://www.instagram.com/oceanlanebali/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="logo">Ocean Lane.</span>
+    <span class="mono">Home of the Twin Cup · Açaí · Matcha · Coffee · Bali</span>
+    <a class="mono" href="https://www.instagram.com/oceanlanebali/" target="_blank" rel="noopener">@oceanlanebali</a>
+  </div>
+</footer>
+
+<script>
+// Hero: pick landscape or portrait cut, autoplay muted, loop. No scroll control.
+(function(){
+  var v = document.getElementById('heroVideo');
+  var hero = document.querySelector('.hero');
+  var mq = window.matchMedia('(orientation: portrait)');
+  function pick(){
+    var p = mq.matches;
+    var src = p ? 'assets/hero-mobile.mp4' : 'assets/hero-desktop.mp4';
+    var poster = p ? 'assets/hero-mobile.jpg' : 'assets/hero-desktop.jpg';
+    hero.style.backgroundImage = 'url(' + poster + ')';
+    if (v.getAttribute('src') === src) return;
+    v.poster = poster;
+    v.src = src;
+    v.muted = true;
+    var play = v.play();
+    if (play && play.catch) play.catch(function(){});
+  }
+  pick();
+  if (mq.addEventListener) mq.addEventListener('change', pick); else mq.addListener(pick);
+})();
+
+// Nav turns solid after hero
+(function(){
+  var nav = document.getElementById('nav');
+  function on(){ nav.classList.toggle('solid', window.scrollY > window.innerHeight * 0.8); }
+  window.addEventListener('scroll', on, {passive:true}); on();
+})();
+
+// Menu tabs
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tabs [role=tab]'));
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      tabs.forEach(function(o){
+        var on=o===t; o.setAttribute('aria-selected',on);
+        document.getElementById(o.getAttribute('aria-controls')).hidden=!on;
+      });
+    });
+  });
+})();
+
+// Gentle reveal on enter
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) { els.forEach(function(e){e.classList.add('in')}); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.15});
+  els.forEach(function(e,i){ e.style.transitionDelay = (i % 4) * 80 + 'ms'; io.observe(e); });
+})();
+</script>
+</body>
+</html>
